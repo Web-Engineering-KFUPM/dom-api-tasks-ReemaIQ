@@ -4,7 +4,8 @@
 All tasks in one file (script.js)
 =======================================
 */
-
+// Ensure DOM is ready before touching elements
+document.addEventListener("DOMContentLoaded", function () {
 /*  
 =======================================
 TODO1: Welcome Board
@@ -19,7 +20,8 @@ inside the <p> element with id="t1-msg".
 💡 Hint:
 document.getElementById("t1-msg").innerHTML = "Hello, World!";
 */
- 
+    const el = document.getElementById("t1-msg");
+    el.textContent = "Hello, World!";
 
 /*  
 =======================================
@@ -94,3 +96,4 @@ data.main.temp      → temperature (°C)
 data.main.humidity  → humidity (%)
 data.wind.speed     → wind speed (m/s)
 */
+});
