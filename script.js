@@ -42,7 +42,12 @@ button.addEventListener("click", function () {
     // change text here
 });
 */
- 
+    const button = document.getElementById("t2-btn");
+    button.addEventListener('click', function () {
+        const text = document.getElementById("t2-status");
+        text.textContent = "You clicked the button!";
+    })
+
 
 /*  
 =======================================
@@ -70,8 +75,26 @@ Use:
 data.content   // the quote text
 data.author    // the author
 */
- 
-
+ const btn2 = document.getElementById("t3-loadQuote");
+btn2.addEventListener("click", function () {
+    fetch("https://dummyjson.com/quotes/random")
+        .then(function (response) {
+            if (!response.ok) {                 // not 2xx → treat as an error
+                throw new Error("HTTP " + response.status);
+            }
+            return response.json();             // turn response body into JS object
+        })
+        .then(function (data) {
+            // use the JSON data here
+            const quote = document.getElementById('t3-quote');
+            const author = document.getElementById('t3-author');
+            quote.textContent = data.quote;
+            author.textContent = data.author;
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+})
 /*  
 =======================================
 TODO4: Dammam Weather Now
